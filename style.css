@@ -1,0 +1,878 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff0000;
+    /* Warna latar belakang header */
+    color: #fff;
+    /* Warna teks header */
+    display: flex;
+    /* Menggunakan flexbox untuk tata letak */
+    justify-content: space-between;
+    /* Ruang antara logo dan navigasi */
+    align-items: center;
+    /* Menyelaraskan item di tengah */
+    padding: 10px 20px;
+    /* Padding di dalam header */
+    position: relative;
+    /* Memungkinkan penggunaan efek posisi untuk animasi */
+    transition: background-color 0.3s;
+    /* Transisi latar belakang */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    /* Bayangan untuk efek kedalaman */
+}
+
+header:hover {
+    background-color: #ff0000;
+    /* Warna latar belakang saat hover */
+}
+
+.logo {
+    display: flex;
+    /* Menggunakan flexbox untuk logo */
+    align-items: center;
+    /* Menyelaraskan logo dan teks di tengah */
+    opacity: 0;
+    /* Awalnya disembunyikan untuk efek muncul */
+    animation: fadeIn 0.5s forwards;
+    /* Animasi muncul */
+}
+
+.logo img {
+    height: 50px;
+    /* Tinggi logo */
+    margin-right: 10px;
+    /* Margin kanan untuk jarak antara logo dan teks */
+    transition: transform 0.3s;
+    /* Transisi untuk efek zoom */
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+    /* Zoom logo saat hover */
+}
+
+.hamburger {
+    display: flex;
+    /* Tampilkan hamburger menu */
+    flex-direction: column;
+    /* Mengatur garis menjadi kolom */
+    cursor: pointer;
+    /* Menunjukkan bahwa ini bisa diklik */
+}
+
+.line {
+    height: 3px;
+    /* Tinggi garis */
+    width: 25px;
+    /* Lebar garis */
+    background-color: #fff;
+    /* Warna garis */
+    margin: 4px 0;
+    /* Margin antara garis */
+    transition: all 0.3s;
+    /* Transisi untuk efek animasi */
+}
+
+nav {
+    display: none;
+    /* Sembunyikan menu navigasi secara default */
+    position: absolute;
+    /* Posisi absolut untuk menu */
+    top: 60px;
+    /* Jarak dari atas header */
+    right: 20px;
+    /* Jarak dari kanan */
+    background-color: #ffffff;
+    /* Warna latar belakang menu */
+    border-radius: 5px;
+    /* Sudut membulat */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    /* Bayangan untuk efek kedalaman */
+    z-index: 1000;
+    /* Pastikan menu di atas konten lainnya */
+    opacity: 0;
+    /* Awalnya tidak terlihat */
+    transform: translateY(-10px);
+    /* Mulai dari sedikit di atas */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Transisi untuk efek muncul */
+}
+
+nav.active {
+    display: block;
+    /* Tampilkan menu saat aktif */
+    opacity: 1;
+    /* Menjadi terlihat */
+    transform: translateY(0);
+    /* Kembali ke posisi normal */
+}
+
+nav ul {
+    list-style: none;
+    /* Menghapus bullet dari daftar */
+    padding: 10px;
+    /* Padding untuk daftar */
+    margin: 0;
+    /* Menghapus margin dari daftar */
+}
+
+nav ul li {
+    margin: 10px 0;
+    /* Margin untuk jarak antar
+
+nav ul {
+    list-style: none;
+    /* Menghapus bullet dari daftar */
+    padding: 0;
+    /* Menghapus padding dari daftar */
+    margin: 0;
+    /* Menghapus margin dari daftar */
+    display: flex;
+    /* Menggunakan flexbox untuk navigasi */
+}
+
+nav ul li {
+    margin-left: 20px;
+    /* Margin kiri untuk jarak antar item menu */
+}
+
+nav ul li a {
+    color: #fff;
+    /* Warna teks link */
+    text-decoration: none;
+    /* Menghapus garis bawah dari link */
+    padding: 5px 10px;
+    /* Padding untuk link */
+    border-radius: 4px;
+    /* Sudut membulat */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transisi untuk warna latar belakang dan teks */
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    /* Warna latar belakang saat hover */
+    color: #333;
+    /* Warna teks saat hover */
+}
+
+/* Animasi untuk efek muncul */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        /* Mulai dari transparan */
+        transform: translateY(-10px);
+        /* Mulai dari sedikit di atas */
+    }
+
+    to {
+        opacity: 1;
+        /* Menjadi terlihat */
+        transform: translateY(0);
+        /* Kembali ke posisi normal */
+    }
+}
+
+nav ul {
+    list-style: none;
+    /* Menghapus bullet point */
+    padding: 0;
+    /* Menghapus padding default */
+    margin: 0;
+    /* Menghapus margin default */
+    display: flex;
+    /* Menggunakan flexbox untuk tata letak horizontal */
+}
+
+nav ul li {
+    margin: 0 15px;
+    /* Margin antara item menu */
+}
+
+nav ul li a {
+    text-decoration: none;
+    /* Menghapus garis bawah */
+    color: #333;
+    /* Warna teks */
+    font-weight: bold;
+    /* Mengubah bobot font menjadi bold */
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        /* Mengubah arah flex menjadi kolom pada layar kecil */
+        align-items: flex-start;
+        /* Menyusun item ke kiri */
+    }
+
+    nav ul {
+        flex-direction: column;
+        /* Mengubah arah menu menjadi kolom */
+        width: 100%;
+        /* Mengatur lebar menu menjadi penuh */
+    }
+
+    nav ul li {
+        margin: 5px 0;
+        /* Margin vertikal antar item menu */
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.hero {
+    background-image: url('hero-image.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+section {
+    padding: 20px;
+}
+
+.menu-item {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+.footer-content h2 {
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 30px;
+    /* Atur ukuran ikon sosial media */
+    height: 30px;
+    /* Atur ukuran ikon sosial media */
+    transition: transform 0.3s;
+}
+
+.social-media a:hover img {
+    transform: scale(1.1);
+    /* Efek zoom saat hover */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+#order {
+    background-color: #f9f9f9;
+    /* Warna latar belakang */
+    padding: 20px;
+    /* Padding di dalam section */
+    border-radius: 8px;
+    /* Sudut membulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan */
+    margin: 20px 0;
+    /* Margin atas dan bawah */
+}
+
+#order h2 {
+    text-align: center;
+    /* Mengatur teks judul agar berada di tengah */
+    color: #333;
+    /* Warna teks */
+}
+
+#order form {
+    display: flex;
+    /* Menggunakan flexbox untuk tata letak form */
+    flex-direction: column;
+    /* Mengatur arah kolom */
+    align-items: center;
+    /* Mengatur item agar berada di tengah */
+}
+
+#order label {
+    margin: 10px 0 5px;
+    /* Margin untuk label */
+    font-weight: bold;
+    /* Membuat label menjadi tebal */
+}
+
+#order input[type="text"],
+#order select {
+    width: 80%;
+    /* Lebar input dan select */
+    padding: 10px;
+    /* Padding di dalam input dan select */
+    border: 1px solid #ccc;
+    /* Border */
+    border-radius: 4px;
+    /* Sudut membulat */
+    margin-bottom: 15px;
+    /* Margin bawah */
+    transition: border-color 0.3s;
+    /* Transisi warna border */
+}
+
+#order input[type="text"]:focus,
+#order select:focus {
+    border-color: #ffcc00;
+    /* Warna border saat fokus */
+    outline: none;
+    /* Menghapus outline default */
+}
+
+#order button {
+    background-color: #ffcc00;
+    /* Warna latar belakang tombol */
+    color: #fff;
+    /* Warna teks tombol */
+    padding: 10px 20px;
+    /* Padding dalam tombol */
+    border: none;
+    /* Menghapus border */
+    border-radius: 4px;
+    /* Sudut membulat */
+    cursor: pointer;
+    /* Menunjukkan bahwa tombol bisa diklik */
+    transition: background-color 0.3s;
+    /* Transisi warna latar belakang */
+}
+
+#order button:hover {
+    background-color: #e6b800;
+    /* Warna latar belakang saat hover */
+}
+
+#confirmationMessage {
+    margin-top: 20px;
+    /* Margin atas untuk pesan konfirmasi */
+    padding: 10px;
+    /* Padding di dalam pesan konfirmasi */
+    background-color: #dff0d8;
+    /* Warna latar belakang pesan konfirmasi */
+    color: #3c763d;
+    /* Warna teks pesan konfirmasi */
+    border: 1px solid #d6e9c6;
+    /* Border untuk pesan konfirmasi */
+    border-radius: 4px;
+    /* Sudut membulat */
+    display: none;
+    /* Awalnya disembunyikan */
+}
+
+body {
+    margin: 0;
+    /* Menghapus margin default */
+    font-family: Arial, sans-serif;
+    /* Mengatur font */
+}
+
+header {
+    background-color: #333;
+    /* Warna latar belakang header */
+    color: #fff;
+    /* Warna teks header */
+    display: flex;
+    /* Menggunakan flexbox untuk tata letak */
+    justify-content: space-between;
+    /* Ruang antara logo dan navigasi */
+    align-items: center;
+    /* Menyelaraskan item di tengah */
+    padding: 10px 20px;
+    /* Padding di dalam header */
+    position: relative;
+    /* Memungkinkan penggunaan efek posisi untuk animasi */
+    transition: background-color 0.3s;
+    /* Transisi latar belakang */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    /* Bayangan untuk efek kedalaman */
+}
+
+header:hover {
+    background-color: #444;
+    /* Warna latar belakang saat hover */
+}
+
+.logo {
+    display: flex;
+    /* Menggunakan flexbox untuk logo */
+    align-items: center;
+    /* Menyelaraskan logo dan teks di tengah */
+}
+
+.logo img {
+    height: 50px;
+    /* Tinggi logo */
+    margin-right: 10px;
+    /* Margin kanan untuk jarak antara logo dan teks */
+}
+
+.hamburger {
+    display: flex;
+    /* Tampilkan hamburger menu */
+    flex-direction: column;
+    /* Mengatur garis menjadi kolom */
+    cursor: pointer;
+    /* Menunjukkan bahwa ini bisa diklik */
+    z-index: 1001;
+    /* Pastikan hamburger di atas elemen lain */
+    transition: transform 0.3s;
+    /* Transisi untuk efek animasi */
+}
+
+.line {
+    height: 3px;
+    /* Tinggi garis */
+    width: 25px;
+    /* Lebar garis */
+    background-color: #fff;
+    /* Warna garis */
+    margin: 4px 0;
+    /* Margin antara garis */
+    transition: all 0.3s;
+    /* Transisi untuk efek animasi */
+}
+
+/* Efek saat hamburger diklik */
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    /* Garis atas berputar dan bergerak ke bawah */
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+    /* Garis tengah menghilang */
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    /* Garis bawah berputar dan bergerak ke atas */
+}
+
+nav {
+    display: none;
+    /* Sembunyikan menu navigasi secara default */
+    position: absolute;
+    /* Posisi absolut untuk menu */
+    top: 60px;
+    /* Jarak dari atas header */
+    right: 20px;
+    /* Jarak dari kanan */
+    background-color: #333;
+    /* Warna latar belakang menu */
+    border-radius: 5px;
+    /* Sudut membulat */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    /* Bayangan untuk efek kedalaman */
+    z-index: 1000;
+    /* Pastikan menu di atas konten lainnya */
+    opacity: 0;
+    /* Awalnya tidak terlihat */
+    transform: translateY(-10px);
+    /* Mulai dari sedikit di atas */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Transisi untuk efek muncul */
+}
+
+nav.active {
+    display: block;
+    /* Tampilkan menu saat aktif */
+    opacity: 1;
+    /* Menjadi terlihat */
+    transform: translateY(0);
+    /* Kembali ke posisi normal */
+}
+
+nav ul {
+    list-style: none;
+    /* Menghapus bullet dari daftar */
+    padding: 10px;
+    /* Padding untuk daftar */
+    margin: 0;
+    /* Menghapus margin dari daftar */
+}
+
+nav ul li {
+    margin: 10px 0;
+    /* Margin untuk jarak antar item menu */
+}
+
+nav ul li a {
+    color: #fff;
+    /* Warna teks link */
+    text-decoration: none;
+    /* Menghapus garis bawah dari link */
+    padding: 5px 10px;
+    /* Padding untuk link */
+    border-radius: 4px;
+    /* Sudut membulat */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header:hover {
+    background-color: #444;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s;
+}
+
+.line {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+nav.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    /* Membuat item menu bisa membungkus jika tidak muat */
+    justify-content: space-around;
+    /* Menyebarkan item menu secara merata */
+    padding: 20px;
+}
+
+.menu-item {
+    margin: 10px;
+    /* Margin antar item */
+}
+
+.card {
+    background-color: white;
+    /* Warna latar belakang kartu */
+    border-radius: 10px;
+    /* Sudut melengkung */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan untuk efek kedalaman */
+    overflow: hidden;
+    /* Memastikan konten tidak melampaui batas kartu */
+    width: 200px;
+    /* Lebar kartu */
+    transition: transform 0.2s;
+    /* Efek transisi saat hover */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Efek zoom saat hover */
+}
+
+.card-image {
+    width: 100%;
+    /* Membuat gambar memenuhi lebar kartu */
+    height: auto;
+    /* Mempertahankan rasio aspek gambar */
+}
+
+.card-content {
+    padding: 15px;
+    /* Padding untuk konten kartu */
+    text-align: center;
+    /* Menyelaraskan teks di tengah */
+}
+
+.card-content h3 {
+    font-size: 16px;
+    /* Ukuran font judul */
+    margin: 10px 0;
+    /* Margin atas dan bawah */
+}
+
+.card-content p {
+    font-size: 14px;
+    /* Ukuran font deskripsi */
+    color: #555;
+    /* Warna teks deskripsi */
+}
+
+@media (max-width: 600px) {
+    .menu-item {
+        flex: 1 1 100%;
+        /* Pada perangkat kecil, setiap item menu akan mengambil lebar penuh */
+        display: flex;
+        justify-content: center;
+        /* Menyelaraskan item ke tengah */
+    }
+}
+
+#tentang-kami {
+    padding: 40px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+#tentang-kami h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#tentang-kami p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tentang-kami img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+#tentang-kami img:hover {
+    transform: scale(1.05);
+}
+
+#kontak-kami {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#kontak-kami h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#kontak-kami form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#kontak-kami label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#kontak-kami input,
+#kontak-kami textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#kontak-kami button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#kontak-kami button:hover {
+    background-color: #c0392b;
+}
+
+#home {
+    position: relative;
+    padding: 100px 20px;
+    /* Menambahkan padding di sisi */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    /* Memusatkan teks */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#home p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#home .cta {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+#home .cta:hover {
+    background-color: #c0392b;
+}
+
+#home img {
+    max-width: 80%;
+    /* Mengatur lebar maksimum gambar */
+    height: auto;
+    /* Memastikan tinggi gambar otomatis */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    /* Menambahkan margin atas untuk jarak dari teks */
+
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}

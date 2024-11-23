@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Makanan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="" />
+            <h1>Pian FoodShop</h1>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="#kontak-kami">Kontak</a></li>
+                <li><a href="#order">Pesan Sekarang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Selamat Datang di Pian FoodShop</h1>
+        <p>Temukan hidangan terbaik dan layanan yang profesional.</p>
+        <a href="#menu" class="cta">Lihat Menu</a>
+        <img src="images/logo.png" alt="Gambar Restoran">
+    </section>
+
+    <section id="menu">
+        <h2>Menu Kami</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <div class="card">
+                    <img src="images/burger.jpg" alt="Menu Item 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Burger Spesial</h3>
+                        <p>Harga: Rp 50.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="card">
+                    <img src="images/pizza.jpg" alt="Menu Item 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Pizza Keju</h3>
+                        <p>Harga: Rp 70.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="card">
+                    <img src="images/pasta.jpg" alt="Menu Item 1" class="card-image">
+                    <div class="card-content">
+                        <h3>Pasta Carbonara</h3>
+                        <p>Harga: Rp 60.000</p>
+                    </div>
+                </div>
+            </div>
+        <div class="menu-item">
+            <div class="card">
+                <img src="images/kentang.jpg" alt="Menu Item 1" class="card-image">
+                <div class="card-content">
+                    <h3>Kentang Goreng</h3>
+                    <p>Harga: Rp 7.000</p>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="card">
+                <img src="images/ayam.jpg" alt="Menu Item 1" class="card-image">
+                <div class="card-content">
+                    <h3>Ayam Goreng</h3>
+                    <p>Harga: Rp 12.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order">
+        <h2>Pesan Sekarang</h2>
+        <form id="orderForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+            <label for="food">Pilih Makanan:</label>
+            <select id="food" required>
+                <option value="burger">Burger Spesial</option>
+                <option value="pizza">Pizza Keju</option>
+                <option value="pasta">Pasta Carbonara</option>
+                <option value="Kentang-Goreng">Kentang Goreng</option>
+                <option value="Ayam-Goreng">Ayam Goreng</option>
+            </select>
+            <button type="submit">Pesan</button>
+        </form>
+        <div id="confirmationMessage" style="display:none;"></div>
+    </section>
+
+    <section id="tentang-kami">
+        <h2>Tentang Kami</h2>
+        <p>Pian FoodShop adalah restoran yang menyajikan berbagai hidangan lezat dengan bahan berkualitas tinggi. Misi kami adalah memberikan pengalaman kuliner yang tak terlupakan bagi setiap pelanggan.</p>
+        <img src="images/logo.png" alt="Tentang Kami" />
+    </section>
+    
+    <section id="kontak-kami">
+        <h2>Kontak Kami</h2>
+        <form>
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Pesan:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form dari pengiriman default
+    
+            // Mengambil nilai dari form
+            const name = document.getElementById('name').value;
+            const food = document.getElementById('food').value;
+    
+            // Menampilkan pesan konfirmasi
+            const message = `Terima kasih, ${name}! Pesanan Anda untuk ${food} telah diterima.`;
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.textContent = message;
+            confirmationMessage.style.display = 'block';
+    
+            // Mengosongkan form
+            this.reset();
+        });
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Kontak Kami</h2>
+            <p>Alamat: Jl. Sultan Agung, Palbapang, Bantul, Yogyakarta, Indonesia</p>
+            <p>Telepon: +62 815 7560 0534</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/yourpage" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/pionn_14" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/yourpage" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yourpage" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2024 Pian FoodShop. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</body>
+</html>
